@@ -6,17 +6,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// layouts components
 import RootLayout from "./components/layouts/RootLayout";
-
-// components
 import Home from "./components/Home";
 import Favorites from "./components/Favorites";
+import QuotesError from "./components/QuotesError";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
+      <Route index element={<Home />} errorElement={<QuotesError />} />
       <Route path="favorites" element={<Favorites />} />
     </Route>
   )
@@ -24,7 +22,7 @@ const routes = createBrowserRouter(
 
 const App = () => {
   return (
-    <div id="dark">
+    <div>
       <RouterProvider router={routes} />
     </div>
   );
